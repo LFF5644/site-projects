@@ -47,20 +47,19 @@ this.projectsChanged=(action,file)=>{
 
 		let index;
 		for(index in config0){
-			project[requiredInfos[index]]=config0[index]
+			project[requiredInfos[index]]=config0[index];
 		}
 		for(index in config1){
-			project[otherInfos[index]]=config1[index]
+			project[otherInfos[index]]=config1[index];
 		}
 		project.folderPath=dir;
 		project.id=folder;
 		project.configFilePath=configFilePath;
 		this.projects.push(project);
 	}
-	log(jsonStringify(this));
 }
 this.getProjects=()=>{
-	return this.projects
+	return this.projects;
 }
 this.stop=()=>{
 	this.watch=false;
