@@ -1,6 +1,7 @@
 const fs=require("fs");
 const {
 	jsonStringify,
+	jsonParseTry,
 	ReadFile,
 	GetLineSimple,
 	ReadDir,
@@ -24,6 +25,7 @@ this.projectsChanged=(action,file)=>{
 		"versionTag",
 		"versionTagColor",
 		"adminsOnly",
+		"old",
 		"info",
 		"git",
 	];
@@ -38,10 +40,10 @@ this.projectsChanged=(action,file)=>{
 		if(!config){continue;}
 
 		const config0=requiredInfos.map(item=>
-			GetLineSimple(config,item)
+			jsonParseTry(GetLineSimple(config,item))
 		);
 		const config1=otherInfos.map(item=>
-			GetLineSimple(config,item)
+			jsonParseTry(GetLineSimple(config,item))
 		);
 		if(config0.some(item=>item===undefined)){continue;}
 
