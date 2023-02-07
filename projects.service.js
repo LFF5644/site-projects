@@ -8,6 +8,27 @@ const {
 }=globals.functions;
 
 this.start=()=>{
+	actions.projectsService_readProjects={
+		display:"Projekte neu laden",
+		service:"projects.service.js",
+		servicename:"Projekte untersuchen",
+		action: this.projectsChanged,
+		enabled:true,
+	}
+	actions.projectsService_stop={
+		display:"Service Stoppen",
+		service:"projects.service.js",
+		servicename:"Projekte untersuchen",
+		action:this.stop,
+		enabled:true,
+	}
+	actions.projectsService_start={
+		display:"Service Starten",
+		service:"projects.service.js",
+		servicename:"Projekte untersuchen",
+		action:this.start,
+		enabled:false,
+	}
 	this.watch=true;
 	this.projects=[];
 	fs.watch("public/p",this.projectsChanged);
@@ -64,5 +85,8 @@ this.getProjects=()=>{
 	return this.projects;
 }
 this.stop=()=>{
+	actions.projectsService_start.enabled=true;
+	actions.projectsService_readProjects.enabled=false;
+	actions.projectsService_stop.enabled=false;
 	this.watch=false;
 }
