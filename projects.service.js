@@ -80,6 +80,8 @@ this.projectsChanged=(action,file)=>{
 		project.configFilePath=configFilePath;
 		this.projects.push(project);
 	}
+	log("Projekte neu geladen!");
+	return true;
 }
 this.getProjects=()=>{
 	return this.projects;
