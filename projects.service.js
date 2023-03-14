@@ -49,6 +49,7 @@ this.projectsChanged=(action,file)=>{
 		"old",
 		"info",
 		"git",
+		"build",
 	];
 	let folder="";
 	this.projects=[];
